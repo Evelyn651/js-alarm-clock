@@ -36,3 +36,42 @@
     border-radius: 5px;
 }
 
+#ctime .text {
+    margin-top: 10px;
+    color: #4A4E69;
+}
+
+/*time selector*/
+#tpick {
+    margin: 0 auto;
+    max-width: 350px;
+    padding: 10px;
+    background: #9A8C98;
+    white-space: nowrap;
+}
+
+#tpick-h, #tpick-m, #tpick-s{
+    display: inline-block;
+    width: 32%;
+}
+
+#tpick select {
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 20px 0;
+}
+#tset, #treset {
+    box-sizing: border-box;
+    width: 50%;
+    background: #4A4E69;
+    color: #fff;
+    padding: 10px;
+    border: 0;
+    cursor: pointer;
+}
+#tset:disabled, #treset:disabled {
+    background: #aaa;
+    color: #888;
+}
