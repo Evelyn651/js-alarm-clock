@@ -1,5 +1,5 @@
 var ac = {
-    init : function(){
+    init: function () {
         // ac.intit() : start the alarm clock
 
         //get the current time - hour, min, sec
@@ -12,7 +12,7 @@ var ac = {
         document.getElementById("tpick-h").appendChild(ac.thr);
         ac.thm = ac.createSel(59);
         document.getElementById("tpick-m").appendChild(ac.thr);
-        ac.ths= ac.createSel(59);
+        ac.ths = ac.createSel(59);
         document.getElementById("tpick-s").appendChild(ac.thr);
 
         // the time picker - set, reset
@@ -29,9 +29,55 @@ var ac = {
         setInterval(ac.tick, 1000);
     },
 
-    createSel : function(max){
+    createSel: function (max) {
         // createSel() : support function - creates a selector for hr, min, sec
         var selector = document.createElement("select");
+        for (var i = 0; i < max; i++) {
+            var opt = document.createElement("option");
+            i = ac.padzero(i);
+            opt.value = i;
+            opt.innerHTML = i;
+            selector.appendChild(opt);
+        }
+        return selector
+    },
 
+    padzero: function (num) {
+        //ac.padzero() : support function - pads hr, min, sec with 0 if < 10
+        if (num < 10) {
+            num = "0" + num;
+        } else {
+            num = num.toString();
+        }
+        return num
+    },
+
+    tick: function () {
+        //ac.tick() : update the current time
+        //current time
+        var now = new Date();
+        var hr = ac.padzero(now.getHours());
+        var min = ac.padzero(now.getMinutes());
+        var sec = ac.padzero(now.getSeconds());
+
+        //update current clock
+        ac.chr.innerHTML = hr;
+        ac.cmin.innerHTML = min;
+        ac.csec.innerHTML = sec;
+
+        //check and sound alarm
+        if (ac.alarm != null) {
+            now = hr + min + sec;
+            if (now === ac.alarm) {
+                if (ac.sound.paused) {
+                    ac.sounds.play();
+                }
+            }
+        }
+
+    },
+
+    set : function(){
+        // ac.set() : set the alarm
     }
 }
