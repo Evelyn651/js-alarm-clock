@@ -79,5 +79,28 @@ var ac = {
 
     set : function(){
         // ac.set() : set the alarm
+
+        ac.alarm = ac.thr.value + ac.this.value;
+        ac.thr.disabled = true;
+        ac.thm.disabled = true;
+        ac.ths.disabled = true;
+        ac.tset.disabled = true;
+        ac.treset.disabled = false;
+    },
+
+    reset : function(){
+        //ac.reset() : reset the alarm
+
+        if(!ac.sound.paused){
+            ac.sound.pause();
+        }
+        ac.thr.disabled = false;
+        ac.thm.disabled = false;
+        ac.ths.disabled = false;
+        ac.tset.disabled = false;
+        ac.treset.disabled = true;
     }
-}
+};
+
+//init - run alarm clock
+window.addEventListener("load", ac.init);
