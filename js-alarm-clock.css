@@ -1,0 +1,38 @@
+/*font*/
+
+#ctime, #tpick {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.header {
+    text-align: center;
+    font-weight: normal;
+    margin: 5px 0 10px 0;
+}
+
+/*current time*/
+#ctime {
+    margin: 0 auto;
+    max-width: 350px;
+    padding: 10px;
+    background: #C9ADA7;
+    text-align: center;
+}
+#ctime .header {
+    color: #F2E9E4;
+}
+
+#ctime .square {
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+}
+
+#ctime .digits {
+    font-size: 24px;
+    background: ghostwhite;
+    color: #C9ADA7;
+    padding: 20px 10px;
+    border-radius: 5px;
+}
+
