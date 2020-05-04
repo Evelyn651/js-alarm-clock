@@ -11,9 +11,9 @@ var ac = {
         ac.thr = ac.createSel(23);
         document.getElementById("tpick-h").appendChild(ac.thr);
         ac.thm = ac.createSel(59);
-        document.getElementById("tpick-m").appendChild(ac.thr);
+        document.getElementById("tpick-m").appendChild(ac.thm);
         ac.ths = ac.createSel(59);
-        document.getElementById("tpick-s").appendChild(ac.thr);
+        document.getElementById("tpick-s").appendChild(ac.ths);
 
         // the time picker - set, reset
         ac.tset = document.getElementById("tset");
@@ -32,7 +32,7 @@ var ac = {
     createSel: function (max) {
         // createSel() : support function - creates a selector for hr, min, sec
         var selector = document.createElement("select");
-        for (var i = 0; i < max; i++) {
+        for (var i = 0; i <= max; i++) {
             var opt = document.createElement("option");
             i = ac.padzero(i);
             opt.value = i;
@@ -70,7 +70,7 @@ var ac = {
             now = hr + min + sec;
             if (now === ac.alarm) {
                 if (ac.sound.paused) {
-                    ac.sounds.play();
+                    ac.sound.play();
                 }
             }
         }
@@ -104,3 +104,4 @@ var ac = {
 
 //init - run alarm clock
 window.addEventListener("load", ac.init);
+
