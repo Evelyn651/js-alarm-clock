@@ -66,6 +66,8 @@ var ac = {
         ac.csec.innerHTML = sec;
 
         //check and sound alarm
+        console.log(ac.alarm);
+        console.log(hr, min, sec);
         if (ac.alarm != null) {
             now = hr + min + sec;
             if (now === ac.alarm) {
@@ -75,12 +77,19 @@ var ac = {
             }
         }
 
+
+
     },
 
     set : function(){
         // ac.set() : set the alarm
+        var setHours = document.getElementById("tpick-h").children[0].value;
+        var setMinutes = document.getElementById("tpick-m").children[0].value;
+        var setSeconds = document.getElementById("tpick-s").children[0].value;
 
-        ac.alarm = ac.thr.value + ac.this.value;
+
+        ac.alarm = setHours + setMinutes + setSeconds;
+        console.log(ac.alarm);
         ac.thr.disabled = true;
         ac.thm.disabled = true;
         ac.ths.disabled = true;
